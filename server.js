@@ -7,7 +7,7 @@ const { WebSocketServer } = require('ws');
 const { Table } = require('./poker');
 
 const PORT = process.env.PORT || 3000;
-const INDEX = path.join(__dirname, 'public', 'index.html');
+const INDEX = [path.join(__dirname, 'public', 'index.html'), path.join(__dirname, 'index.html')].find((p) => fs.existsSync(p)) || path.join(__dirname, 'public', 'index.html');
 
 const NEXT_HAND_MS = { showdown: 7000, uncontested: 3500 };
 const DISCONNECTED_ACT_MS = 15000;
